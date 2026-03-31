@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A special little surprise just for you 💫">
+    <title>I Made Something For You ✨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating particles background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- ==================== SECTION 1: LANDING ==================== -->
+    <section class="section active" id="section-landing">
+        <div class="content-wrapper">
+            <div class="landing-emoji fade-in">👀</div>
+            <h1 class="landing-title fade-in delay-1">Hey</h1>
+            <p class="landing-subtitle fade-in delay-2">I made something for you…</p>
+            <p class="landing-note fade-in delay-3">But you have to promise you won't judge 😄</p>
+            <div class="arrow-down fade-in delay-4">👇</div>
+            <button class="btn-primary fade-in delay-4" id="btn-start" onclick="goToSection('section-prank')">
+                Start
+                <span class="btn-sparkle">✨</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 2: APRIL FOOLS PRANK ==================== -->
+    <section class="section" id="section-prank">
+        <div class="content-wrapper">
+            <div class="scanner-container" id="scanner-container">
+                <div class="scanner-icon">🤖</div>
+                <h2 class="scanner-title" id="scanner-title">Processing your data…</h2>
+                <div class="scan-steps">
+                    <div class="scan-step" id="step-1">
+                        <span class="step-icon">🔍</span>
+                        <span class="step-text">Checking personality…</span>
+                        <span class="step-check" id="check-1">✓</span>
+                    </div>
+                    <div class="scan-step" id="step-2">
+                        <span class="step-icon">✨</span>
+                        <span class="step-text">Scanning vibes…</span>
+                        <span class="step-check" id="check-2">✓</span>
+                    </div>
+                    <div class="scan-step" id="step-3">
+                        <span class="step-icon">📊</span>
+                        <span class="step-text">Calculating coolness level…</span>
+                        <span class="step-check" id="check-3">✓</span>
+                    </div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                    <span class="progress-text" id="progress-text">0%</span>
+                </div>
+                <p class="result-loading" id="result-loading">Result loading...</p>
+            </div>
+
+            <!-- Result (hidden initially) -->
+            <div class="result-container hidden" id="result-container">
+                <div class="result-badge">📋 Result</div>
+                <h2 class="result-title">You are officially…</h2>
+                <div class="result-highlight">
+                    <span class="cool-text">Too cool</span>
+                    <span class="cool-emoji">😌</span>
+                </div>
+                <div class="april-fools-reveal">
+                    <span class="af-text">April Fools</span>
+                    <span class="af-emoji">😂</span>
+                </div>
+                <button class="btn-primary" id="btn-more" onclick="goToSection('section-real')">
+                    Wait… there's more
+                    <span class="btn-sparkle">→</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 3: PERSONAL / REAL ==================== -->
+    <section class="section" id="section-real">
+        <div class="content-wrapper">
+            <div class="real-content">
+                <p class="real-line fade-up" data-delay="0">Okay okay, jokes apart…</p>
+                <div class="real-divider fade-up" data-delay="200"></div>
+                <p class="real-line fade-up" data-delay="400">I didn't just make this for April Fools 😄</p>
+                <p class="real-line highlight-line fade-up" data-delay="800">I just wanted to say—</p>
+                <p class="real-line special-line fade-up" data-delay="1200">you're actually really nice to talk to,</p>
+                <p class="real-line special-line fade-up" data-delay="1600">and you kinda make normal days less boring.</p>
+                <div class="real-divider fade-up" data-delay="2000"></div>
+                <p class="real-line last-line fade-up" data-delay="2200">That's it… nothing dramatic 😌</p>
+                <button class="btn-primary fade-up" data-delay="2600" onclick="goToSection('section-interactive')">
+                    Continue
+                    <span class="btn-sparkle">→</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 4: INTERACTIVE ==================== -->
+    <section class="section" id="section-interactive">
+        <div class="content-wrapper">
+            <div class="interactive-content" id="interactive-main">
+                <p class="interactive-intro">So yeah…</p>
+                <h2 class="interactive-question">What do you think about this website? 👀</h2>
+                <div class="btn-choices">
+                    <button class="btn-choice" id="btn-cute" onclick="showReply('cute')">It's cute 😊</button>
+                    <button class="btn-choice" id="btn-okay" onclick="showReply('okay')">It's okay 😐</button>
+                    <button class="btn-choice" id="btn-af" onclick="showReply('af')">April Fools again? 😭</button>
+                </div>
+
+                <div class="dont-click-section">
+                    <button class="btn-dont-click" id="btn-dont-click" onclick="showReply('dontclick')">
+                        ⚠️ Don't click this button
+                    </button>
+                </div>
+            </div>
+
+            <!-- Reply bubbles (hidden initially) -->
+            <div class="reply-container hidden" id="reply-container">
+                <div class="reply-bubble" id="reply-bubble">
+                    <p id="reply-text"></p>
+                </div>
+                <button class="btn-primary" id="btn-final" onclick="goToSection('section-final')">
+                    Continue to the end ✨
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 5: FINAL ==================== -->
+    <section class="section" id="section-final">
+        <div class="content-wrapper">
+            <div class="final-content">
+                <p class="final-line fade-up" data-delay="0">Anyway…</p>
+                <div class="final-divider fade-up" data-delay="400"></div>
+                <h2 class="final-title fade-up" data-delay="600">Happy April Fools 😄</h2>
+                <div class="final-divider fade-up" data-delay="800"></div>
+                <p class="final-line soft fade-up" data-delay="1000">And yeah—</p>
+                <p class="final-line glow fade-up" data-delay="1400">just wanted to make you smile today.</p>
+                <div class="final-emoji fade-up" data-delay="1800">🌸</div>
+                <button class="btn-back fade-up" data-delay="2200" onclick="goBackToInteractive()">
+                    ← Back
+                </button>
+                <div class="final-hearts" id="final-hearts"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="music.m4a" type="audio/mp4">
+    </audio>
+
+    <!-- Music Toggle Button -->
+    <button class="music-toggle" id="music-toggle" aria-label="Toggle music" title="Toggle Music">
+        <span class="music-icon" id="music-icon">
+            <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l12-2v13"/>
+                <circle cx="6" cy="18" r="3"/>
+                <circle cx="18" cy="16" r="3"/>
+            </svg>
+            <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l12-2v13"/>
+                <circle cx="6" cy="18" r="3"/>
+                <circle cx="18" cy="16" r="3"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+            </svg>
+        </span>
+        <span class="music-bars" id="music-bars">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
